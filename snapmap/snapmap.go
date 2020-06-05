@@ -19,8 +19,8 @@ func NewClient(client *http.Client) *Client {
 	base = base.Set("Content-Type", "application/json")
 	return &Client{
 		sling: base,
-		EpochService: newEpochService(base.New()),
-		PlaylistService: newPlaylistService(base.New()),
+		EpochService: newEpochService(client),
+		PlaylistService: newPlaylistService(client),
 		TileSetService: newTileSetService(client),
 	}
 }

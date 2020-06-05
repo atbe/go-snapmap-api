@@ -17,12 +17,14 @@ func newTileSetService(http *http.Client) *TileSetService {
 	}
 }
 
+type TileSetId struct {
+	Type string `json:"type"`
+	Flavor string `json:"flavor"`
+	Epoch string `json:"epoch"`
+}
+
 type TileSetInfo struct {
-	Id struct {
-		Type string `json:"type"`
-		Flavor string `json:"flavor"`
-		Epoch string `json:"epoch"`
-	} `json:"id"`
+	Id TileSetId `json:"id"`
 	State string `json:"state"`
 	StartTime int `json:"startTime"`
 	LastUpdateTime int `json:"lastUpdateTime"`

@@ -1,14 +1,16 @@
 package snapmap
 
-import "github.com/dghubble/sling"
+import (
+	"net/http"
+)
 
 type EpochService struct {
-	sling *sling.Sling
+	http *http.Client
 }
 
-func newEpochService(sling *sling.Sling) *EpochService {
+func newEpochService(http *http.Client) *EpochService {
 	return &EpochService{
-		sling: sling,
+		http: http,
 	}
 }
 
@@ -19,6 +21,10 @@ const (
 	PointOfInterestTileSetType TileSetType = "POI"
 )
 
-func (e *EpochService) GetEpoch(setType TileSetType) interface{} {
+type EpochResponse struct {
+
+}
+
+func (e *EpochService) GetEpoch(target interface{}, setType TileSetType) error {
 	return nil
 }
